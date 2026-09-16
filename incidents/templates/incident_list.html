@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Incident List</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color:white;
+            min-height:100vh;
+        }
+        h1{
+            text-align:center;
+            color:#38bdf8;
+            margin-top:40px;
+            margin-bottom:10px;
+        }
+        .subtitle{
+            text-align:center;
+            color:#cbd5e1;
+            margin-bottom:20px;
+        }
+        .container{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap:20px;
+            padding:30px 40px 80px;
+            max-width:1200px;
+            margin:0 auto;
+        }
+        .card{
+            background: rgba(17, 24, 39, 0.95);
+            border:1px solid #334155;
+            padding:20px;
+            border-radius:14px;
+            box-shadow:0 8px 24px rgba(0,0,0,0.35);
+        }
+        .card h3{
+            color:#38bdf8;
+            margin:0 0 10px;
+            font-size:20px;
+        }
+        .card p{
+            color:#cbd5e1;
+            font-size:14px;
+            margin:6px 0;
+        }
+        .meta{
+            color:#94a3b8;
+            font-size:13px;
+            margin-top:8px;
+        }
+        .badge-row{
+            display:flex;
+            gap:8px;
+            flex-wrap:wrap;
+            margin:10px 0 12px;
+        }
+        .badge{
+            display:inline-block;
+            padding:4px 10px;
+            border-radius:999px;
+            font-size:12px;
+            font-weight:bold;
+            color:white;
+            background:#334155;
+        }
+        .badge.priority-high{ background:#ef4444; }
+        .badge.priority-medium{ background:#f59e0b; }
+        .badge.priority-low{ background:#22c55e; }
+        .badge.status-progress{ background:#3b82f6; }
+        .badge.status-resolved{ background:#16a34a; }
+        .badge.status-pending{ background:#64748b; }
+        .topbar{
+            text-align:center;
+            margin-top:10px;
+        }
+        .topbar a, .logout-box a{
+            color:#38bdf8;
+            text-decoration:none;
+            font-weight:bold;
+        }
+        .logout-box{
+            position: fixed;
+            bottom: 20px;
+            right:20px;
+            background:#111827;
+            padding:10px 14px;
+            border-radius:999px;
+            border:1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reported Incidents</h1>
+    <p class="subtitle">A clear overview of incidents, reporters, and current status.</p>
+    <div class="topbar">
+        <a href="/report/">+ Report New Incident</a>
+    </div>
+    <div class="container">
+        {% for incident in incidents %}
+        <div class="card">
+            <h3>{{ incident.title }}</h3>
+            <p>{{ incident.description }}</p>
+            <div class="badge-row">
+                <span class="badge">{{ incident.category }}</span>
+                <span class="badge priority-{{ incident.priority|lower }}">{{ incident.priority }}</span>
+                <span class="badge status-{{ incident.status|cut:' '|lower }}">{{ incident.status }}</span>
+            </div>
+            <p class="meta"><strong>Reported by:</strong> {{ incident.reported_by.username }}</p>
+            <p class="meta"><strong>Contact:</strong> {{ incident.contact_details|default:"Not provided" }}</p>
+            <p class="meta"><strong>Email:</strong> {{ incident.email|default:"Not provided" }}</p>
+            <p class="meta"><strong>Reported on:</strong> {{ incident.created_at|date:"M d, Y H:i" }}</p>
+        </div>
+        {% empty %}
+        <p style="text-align:center;">No incidents reported yet.</p>
+        {% endfor %}
+    </div>
+    <div class="logout-box">
+        <a href="/logout/">Logout</a>
+    </div>
+</body>
+</html>

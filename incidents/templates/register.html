@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | GuardianNet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f8fafc;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .auth-card {
+            background: rgba(15, 23, 42, 0.95);
+            width: 420px;
+            max-width: 100%;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        h2 {
+            margin: 0 0 8px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        form p {
+            margin: 10px 0;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 14px;
+            margin: 6px 0 2px;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            background: #111827;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 14px;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        label {
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .helptext {
+            display: block;
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join GuardianNet and help keep your community safe</p>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

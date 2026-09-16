@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GuardianNet</title>
+        <style>
+            body {
+                margin:0;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                background: #0f172a;
+                color:white;
+            }
+            .navbar{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 30px;
+                background:#111827;
+            }
+            .logo{
+                font-size: 22px;
+                font-weight: bold;
+                color:#38bdf8;
+            }
+            .nav-links a{
+                color: white;
+                margin-left: 15px;
+                text-decoration:none;
+            }
+            .nav-links a:hover{
+                color:#38bdf8;
+            }
+            .hero{
+                text-align: center;
+                padding: 80px 20px;
+            }
+            .hero h1{
+                font-size: 40px;
+                color: #38bdf8;
+            }
+            .hero p{
+                font-size: 18px;
+                color:#cdb5e1;
+                max-width: 700px;
+                margin:auto;
+            }
+            .buttonP, .buttonS {
+                padding: 12px 20px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                margin: 5px;
+            }
+            .buttonP{
+                background:#38bdf8;
+                color: black;
+            }
+            .buttonP:hover{
+                background: #0ea5e9;
+            }
+            .buttonS{
+                background: transparent;
+                border:2px solid #38bdf8;
+                color: #38bdf8;
+            }
+            .buttonS:hover{
+                background: #38bdf8;
+                color:black
+            }
+            .features{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin: 40px;
+                gap:20px;
+            }
+            .card{
+                background: #1f2937;
+                padding: 20px;
+                width: 250px;
+                border-radius:10px;
+                text-align: center;
+                box-shadow:0 0 10px rgba(56,189,248,0.2) ;
+            }
+            .card h3{
+                color: #38bdf8;
+            }
+            .footer{
+                text-align:center;
+                padding: 20px;
+                background: #111827;
+                margin-top: 40px;
+                color:#94a3b8;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="logo">🛡️GuardianNet</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/report/">Report</a>
+                <a href="/incidents/">Incidents</a>
+                <a href="/login/">Login</a>
+                <a href="/register/">Register</a>
+                <a href="/logout/">Logout</a>
+            </div>
+        </div>  
+            <h1>Protect.Report.Prevent</h1>
+            <p>GuardianNet is a cybersecurity platform designed to help students and teachers report cyber incidents, learn cyber safety, and create a secure educational environment. </p>
+            <a href="/report/" class="buttonP">Report Incident</a>
+            <a href="/awareness/" class="buttonS">Cyber Awareness</a>
+        </div>
+        <div class="features">
+            <div class="card">
+            <h3>CyberBullying</h3>
+            <p>Report abusive or harmful online behavior.</p>
+        </div>
+        <div class="card">
+            <h3>Phishing</h3>
+            <p>Detect and report scam messages and links.</p>
+        </div>
+        <div class="card">
+            <h3>Fake Profiles</h3>
+            <p>Report impersonation accounts.</p>
+        </div>
+        <div class="card">
+            <h3>Safety Awareness</h3>
+            <p>Learn how to stay safe online.</p>    
+        </div>
+        </div>
+        <div class="footer">
+            © 2026 GuardianNet | Protect. Report. Prevent.
+        </div>
+    </body>
+</html>
